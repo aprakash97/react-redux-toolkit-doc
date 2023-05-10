@@ -1,11 +1,11 @@
 import User from "./User";
 
-const UserList = ({ users, onChangeTask, onDeleteTask }) => {
+const UserList = ({ users, onChangeUser, onDeleteUser }) => {
   return (
     <ul>
       {users.map((user) => (
         <li key={user.id}>
-          <User user={user} onChange={onChangeTask} onDelete={onDeleteTask} />
+          <User user={user} onChange={onChangeUser} onDelete={onDeleteUser} />
         </li>
       ))}
     </ul>

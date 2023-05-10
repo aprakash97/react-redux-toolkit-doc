@@ -13,14 +13,14 @@ const App = () => {
   // const [tasks, dispatch] = useReducer(TasksReducer, initialTasks);
   const [users, dispatch] = useReducer(UsersReducer, initialTasks);
 
-  function handleChangeTask(task) {
+  function handleChangeUser(task) {
     dispatch({
       type: "changed",
       task: task,
     });
   }
 
-  function handleDeleteTask(taskId) {
+  function handleDeleteUser(taskId) {
     dispatch({
       type: "deleted",
       id: taskId,
@@ -32,8 +32,8 @@ const App = () => {
       <h1>Testing</h1>
       <UserList
         users={users}
-        onChangeTask={handleChangeTask}
-        onDeleteTask={handleDeleteTask}
+        onChangeUser={handleChangeUser}
+        onDeleteUser={handleDeleteUser}
       />
     </div>
   );
