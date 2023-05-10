@@ -1,28 +1,16 @@
 import { useState } from "react";
 
-const TaskList = ({ tasks, onChangeTask, onDeleteTask }) => {
-  return (
-    <ul>
-      {tasks.map((task) => (
-        <li key={task.id}>
-          <Task task={task} onChange={onChangeTask} onDelete={onDeleteTask} />
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-const Task = ({ task, onChange, onDelete }) => {
+const User = ({ user, onChange, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
   let taskContent;
   if (isEditing) {
     taskContent = (
       <>
         <input
-          value={task.text}
+          value={user.text}
           onChange={(e) => {
             onChange({
-              ...task,
+              ...user,
               text: e.target.value,
             });
           }}
@@ -33,7 +21,7 @@ const Task = ({ task, onChange, onDelete }) => {
   } else {
     taskContent = (
       <>
-        {task.text}
+        {user.text}
         <button onClick={() => setIsEditing(true)}>Edit</button>
       </>
     );
@@ -42,18 +30,18 @@ const Task = ({ task, onChange, onDelete }) => {
     <label>
       <input
         type="checkbox"
-        checked={task.done}
+        checked={user.done}
         onChange={(e) => {
           onChange({
-            ...task,
+            ...user,
             done: e.target.checked,
           });
         }}
       />
       {taskContent}
-      <button onClick={() => onDelete(task.id)}>Delete</button>
+      <button onClick={() => onDelete(user.id)}>Delete</button>
     </label>
   );
 };
 
-export default TaskList;
+export default User;

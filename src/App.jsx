@@ -1,26 +1,17 @@
 import { createRoot } from "react-dom/client";
-import AddTask from "./AddTask";
-import TaskList from "./TaskList";
 import { useReducer } from "react";
-import TasksReducer from "./TasksReducer";
+import UsersReducer from "./UsersReducer";
+import UserList from "./UserList";
 
-let nextId = 3;
 const initialTasks = [
-  { id: 0, text: "Visit Kafka Museum", done: true },
-  { id: 1, text: "Watch a puppet show", done: false },
-  { id: 2, text: "Lennon Wall pic", done: false },
+  { id: 0, text: "first User", done: true },
+  { id: 1, text: "adadad", done: false },
+  { id: 2, text: "adadas", done: false },
 ];
 
 const App = () => {
-  const [tasks, dispatch] = useReducer(TasksReducer, initialTasks);
-
-  function handleAddTask(text) {
-    dispatch({
-      type: "added",
-      id: nextId++,
-      text: text,
-    });
-  }
+  // const [tasks, dispatch] = useReducer(TasksReducer, initialTasks);
+  const [users, dispatch] = useReducer(UsersReducer, initialTasks);
 
   function handleChangeTask(task) {
     dispatch({
@@ -38,10 +29,9 @@ const App = () => {
 
   return (
     <div>
-      <h1>Prague itinerary</h1>
-      <AddTask onAddTask={handleAddTask} />
-      <TaskList
-        tasks={tasks}
+      <h1>Testing</h1>
+      <UserList
+        users={users}
         onChangeTask={handleChangeTask}
         onDeleteTask={handleDeleteTask}
       />
